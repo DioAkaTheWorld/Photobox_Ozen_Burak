@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>index td8 : fetch</title>
+	<link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+<main id="photo">
+	<h1>Photo : 105</h1>
+
+	<section id="la_photo">
+		<img src="" alt="photo">
+		<h4>titre</h4>
+		<p>description</p>
+		<p>type, defX x defY</p>
+		<h4 id="la_categorie">categorie : categorie de l'image</h4>
+		<h4>commentaires : </h4>
+		<ul id="les_commentaires">
+			<li>pseudo : Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, vitae.</li>
+			<li>pseudo : Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, recusandae.</li>
+		</ul>
+
+
+		<section id="gallery_section">
+			<h2>Galerie de photos</h2>
+			<button id="loadGalleryBtn">Charger la galerie</button>
+			<div id="gallery_container"></div>
+			<div id="gallery_navigation">
+				<button id="firstBtn">Premier</button>
+				<button id="prevBtn">Précédent</button>
+				<button id="nextBtn">Suivant</button>
+				<button id="lastBtn">Dernier</button>
+			</div>
+		</section>
+
+
+	</section>
+</main>
+
+<script id="photoTemplate" type="text/x-handlebars-template">
+	<img src="{{fileUrl}}" alt="{{titre}}">
+	<h4>{{titre}}</h4>
+	<p>{{descr}}</p>
+	<p>{{type}}, {{width}} x {{height}}</p>
+</script>
+
+<script id="galleryTemplate" type="text/x-handlebars-template">
+	<ul class="gallery">
+		{{#each photos}}
+		<li class="thumbnail">
+			<a href="#{{photo.id}}">
+				<img src="https://webetu.iutnc.univ-lorraine.fr{{photo.thumbnail.href}}" alt="{{photo.titre}}">
+				<p>{{photo.titre}}</p>
+			</a>
+		</li>
+		{{/each}}
+	</ul>
+</script>
+
+
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+<script type="module" src="index.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.min.js"></script>
+</body>
+</html>
